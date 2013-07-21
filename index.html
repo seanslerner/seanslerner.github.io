@@ -182,7 +182,8 @@
         var $description = $page.find('div#description');
         $h4.text('');
         $description.hide();
-        showText($h4, $h4.attr('title'), 0, 57, function() {
+        showText($h4, $h4.attr('title'), 0,
+          ($h4.attr('title').length < 10 ? 100 : 60), function() {
           $description.slideDown(500);
         });
       });

@@ -28,6 +28,11 @@
       display: block;
       margin: 0 auto;
     }
+    #side-bar {
+      float:left;
+      border-right: solid #eeeeee 1px;
+      padding-right: 20px;
+    }
     #hi, #buildStuff {
       font-size: 130px;
       line-height: 120px;
@@ -51,6 +56,14 @@
       font-size: 10px;
     }
 
+    #description {
+      display:none;
+    }
+
+    #description a {
+      font-weight: bold;
+    }
+
     @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
       body {
         margin-top: 0;
@@ -64,25 +77,23 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="span3">
-        <div class="well">
-          <h1><a href="">Sean S Lerner</a></h1>
-          <img src="/img/seanslerner.jpg">
-          <hr>
-          <div class="contact">
-            <a href="https://github.com/seanslerner"><i class="icon-github"></i></a>
-            <a href="https://twitter.com/seanlerner"><i class="icon-twitter"></i></a>
-            <a href="mailto:seanslerner@gmail.com"><i class="icon-envelope"></i></a>
-            <a href="#" id="pgp"><i class="icon-key"></i></a>
-          </div>
-          <hr class="hidden-phone">
-          <ul class="nav nav-list hidden-phone">
-            <li class="nav-header">Projects</li>
-            <li id="l"><a href="#reed-switchboard" id="reed-switchboard">Reed Switchboard</a></li>
-            <li id="l"><a href="#jammed" id="jammed">Jammed</a></li>
-            <li id="l"><a href="#mongoid-paginate" id="paginoid">Mongoid::Paginate</a></li>
-          </ul>
+      <div id="side-bar">
+        <h1><a href="">Sean S Lerner</a></h1>
+        <img src="/img/seanslerner.jpg">
+        <hr>
+        <div class="contact">
+          <a href="https://github.com/seanslerner"><i class="icon-github"></i></a>
+          <a href="https://twitter.com/seanlerner"><i class="icon-twitter"></i></a>
+          <a href="mailto:seanslerner@gmail.com"><i class="icon-envelope"></i></a>
+          <a href="#" id="pgp"><i class="icon-key"></i></a>
         </div>
+        <hr class="hidden-phone">
+        <ul class="nav nav-list hidden-phone">
+          <li class="nav-header">Projects</li>
+          <li id="l"><a href="#reed-switchboard" id="reed-switchboard">Reed Switchboard</a></li>
+          <li id="l"><a href="#jammed" id="jammed">Jammed</a></li>
+          <li id="l"><a href="#mongoid-paginate" id="paginoid">Mongoid::Paginate</a></li>
+        </ul>
       </div>
       <div class="w546 hidden-phone">
         <div id="seanslerner" class="content">
@@ -90,37 +101,35 @@
           <h1 id="buildStuff"></h1>
         </div>
         <div id="reed-switchboard" class="content" style="display:none;">
-          <div class="well well-large">
-            <h4>Reed Switchboard</h4>
+          <h4 title="Reed Switchboard"></h4>
+          <div id="description">
             <p>My most recent project - the Reed Switchboard was built for the Reed College community as a new platform for all members of the community - students, alumni, faculty, staff, parents, and friends - to connect with one another in a more meaningful and useful way than current social networks allow.</p>
             <hr>
             <img src="/img/reed-switchboard.png">
           </div>
         </div>
         <div id="paginoid" class="content" style="display:none;">
-          <div class="well well-large">
-            <h4>Mongoid::Paginate</h4>
+          <h4 title="Mongoid::Paginate"></h4>
+          <div id="description">
             <img src="https://api.travis-ci.org/seanslerner/mongoid_paginate.png" style="margin: 0;">
             <p>Simple pagination for Mongoid ODM - <a href="https://github.com/seanslerner/mongoid_paginate">Mongoid::Paginate</a></p>
           </div>
         </div>
         <div id="jammed" class="content" style="display:none;">
-          <div class="well well-large">
-            <h4>Jammed</h4>
+          <h4 title="Jammed"></h4>
+          <div id="description">
             <img src="https://secure.travis-ci.org/seanslerner/Jammed.png?branch=master" style="margin: 0;">
             <p>The Ruby wrapper for <a href="http://www.thisismyjam.com/">This Is My Jam</a>'s API. In the first quarter of 2012, I built Jammed with <a href="https://github.com/robyoung26">Rob Young</a> and <a href="https://github.com/mikesea">Mike Chlipala</a>. Once TIMJ updates their API I will continue working on this project.</p>
             <p>The source is up on Github: <a href="https://github.com/seanslerner/Jammed">github.com/seanslerner/Jammed</a>. If you use Jammed for anything or want to improve it, let me know!</p>
             <hr>
-            <p>Also, in case you're wondering: </p>
             <script src="http://www.thisismyjam.com/includes/js/medallion.js"></script>
             <script>Jam.Medallion.insert({"username":"seanslerner"});</script>
           </div>
         </div>
         <div id="pgp" class="content" style="display:none;">
-          <div class="well well-large">
-            <p>Below is the public encryption key for Sean Lerner (<a href="mailto:seanslerner@gmail.com">seanslerner@gmail.com</a>) in armored OpenPGP format.</p>
-          </div>
-          <pre>
+          <p>Below is the public encryption key for Sean Lerner (<a href="mailto:seanslerner@gmail.com">seanslerner@gmail.com</a>) in armored OpenPGP format.</p>
+          <hr>
+          <small>
             -----BEGIN PGP PUBLIC KEY BLOCK-----
             Version: GnuPG/MacGPG2 v2.0.19 (Darwin)
 
@@ -152,7 +161,7 @@
             HMlXdq0kV3U7sXIFiPc=
             =yiEW
             -----END PGP PUBLIC KEY BLOCK-----
-          </pre>
+          </small>
         </div>
       </div>
     </div>
@@ -163,9 +172,16 @@
       $('li#l a').on('click', function(event){
         event.preventDefault();
         var id = $(this).attr('id');
-        var page = $('div.content#'+id);
+        var $page = $('div.content#'+id);
         $content.hide();
-        page.fadeIn();
+        $page.fadeIn();
+        var $h4 = $page.find('h4');
+        var $description = $page.find('div#description');
+        $h4.text('');
+        $description.hide();
+        showText($h4, $h4.attr('title'), 0, 57, function() {
+          $description.slideDown(500);
+        });
       });
       $('a#pgp').on('click', function(event){
         event.preventDefault();
@@ -175,14 +191,17 @@
         page.fadeIn();
       });
       $("#hi").delay(100).fadeOut(500, function(){
-        showText("#buildStuff", "I build things on the internet", 0, 115);
+        showText("#buildStuff", "I build things on the internet", 0, 100);
       });
     });
 
-    var showText = function (target, message, index, interval) {
+    function showText(target, message, index, interval, callback) {
       if (index < message.length) {
         $(target).append(message[index++]);
-        setTimeout(function () { showText(target, message, index, interval); }, interval);
+        setTimeout(function () { showText(target, message, index, interval, callback); }, interval);
+      }
+      if (callback && index == message.length - 1) {
+        callback();
       }
     }
   </script>

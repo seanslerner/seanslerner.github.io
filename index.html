@@ -1,225 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Problem Solver</title>
-  <meta name="description" content="Problem Solver & Thing Builder.">
-  <link href="img/favicon.ico" rel="shortcut icon">
-  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-  <style>
-    body {
-      background-color: #FEFEFE;
-      margin-top: 20px;
-      font-family: 'Source Code Pro', sans-serif;
-    }
-    h1 a {
-      color: #333333;
-      text-decoration: none;
-    }
-    h1 a:hover {
-      text-decoration: none;
-    }
-    img {
-      display: block;
-      margin: 0 auto;
-    }
-    #side-bar {
-      float:left;
-      border-right: solid #eeeeee 1px;
-      padding-right: 20px;
-    }
-    #hi, #buildStuff {
-      font-size: 130px;
-      line-height: 120px;
-    }
-    .w546 {
-      width: 546px;
-      float: left;
-      margin-left: 20px;
-    }
-    .contact {
-      text-align: center;
-      font-size: 30px;
-    }
-
-    a, .contact a:hover {
-      color: #333333;
-      text-decoration: none;
-    }
-
-    #pgp pre {
-      font-size: 10px;
-    }
-
-    #description {
-      display:none;
-    }
-
-    #description a {
-      font-weight: bold;
-    }
-
-    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+<html class="full" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Problem Solver & Thing Builder.">
+    <meta name="author" content="Sean Lerner">
+    <title>Problem Solver</title>
+    <link href="img/favicon.ico" rel="shortcut icon">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <style>
       body {
-        margin-top: 0;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background: none;
+        font-family: 'Source Code Pro', sans-serif;
       }
-      h1 {
-        text-align: center;
-      }
-      #side-bar {
-        border-right: 0;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="row">
-      <div id="side-bar">
-        <h1><a href="">Sean S Lerner</a></h1>
-        <img src="/img/seanslerner.jpg">
-        <hr>
-        <div class="contact">
-          <a href="https://github.com/seanslerner"><i class="icon-github"></i></a>
-          <a href="https://twitter.com/seanlerner"><i class="icon-twitter"></i></a>
-          <a href="mailto:seanslerner@gmail.com"><i class="icon-envelope"></i></a>
-          <a href="#" id="pgp" class="hidden-phone"><i class="icon-key"></i></a>
-        </div>
-        <hr class="hidden-phone">
-        <ul class="nav nav-list hidden-phone">
-          <li class="nav-header">Projects</li>
-          <li id="l"><a href="#reed-switchboard" id="reed-switchboard">Reed Switchboard</a></li>
-          <li id="l"><a href="#jammed" id="jammed">Jammed</a></li>
-          <li id="l"><a href="#mongoid-paginate" id="paginoid">Mongoid::Paginate</a></li>
-        </ul>
-      </div>
-      <div class="w546 hidden-phone">
-        <div id="seanslerner" class="content">
-          <h1 id="hi">HI</h1>
-          <h1 id="buildStuff"></h1>
-        </div>
-        <div id="reed-switchboard" class="content" style="display:none;">
-          <h4 title="Reed Switchboard"></h4>
-          <div id="description">
-            <p>My most recent project - the Reed Switchboard was built for the Reed College community as a new platform for all members of the community - students, alumni, faculty, staff, parents, and friends - to connect with one another in a more meaningful and useful way than current social networks allow.</p>
-            <hr>
-            <img src="/img/reed-switchboard.png">
-          </div>
-        </div>
-        <div id="paginoid" class="content" style="display:none;">
-          <h4 title="Mongoid::Paginate"></h4>
-          <div id="description">
-            <img src="https://api.travis-ci.org/seanslerner/mongoid_paginate.png" style="margin: 0;">
-            <p>Simple pagination for Mongoid ODM - <a href="https://github.com/seanslerner/mongoid_paginate">Mongoid::Paginate</a></p>
-          </div>
-        </div>
-        <div id="jammed" class="content" style="display:none;">
-          <h4 title="Jammed"></h4>
-          <div id="description">
-            <img src="https://secure.travis-ci.org/seanslerner/Jammed.png?branch=master" style="margin: 0;">
-            <p>The Ruby wrapper for <a href="http://www.thisismyjam.com/">This Is My Jam</a>'s API. In the first quarter of 2012, I built Jammed with <a href="https://github.com/robyoung26">Rob Young</a> and <a href="https://github.com/mikesea">Mike Chlipala</a>. Once TIMJ updates their API I will continue working on this project.</p>
-            <p>The source is up on Github: <a href="https://github.com/seanslerner/Jammed">github.com/seanslerner/Jammed</a>. If you use Jammed for anything or want to improve it, let me know!</p>
-            <hr>
-            <script src="http://www.thisismyjam.com/includes/js/medallion.js"></script>
-            <script>Jam.Medallion.insert({"username":"seanslerner"});</script>
-          </div>
-        </div>
-        <div id="pgp" class="content" style="display:none;">
-          <p>Below is the public encryption key for Sean Lerner (<a href="mailto:seanslerner@gmail.com">seanslerner@gmail.com</a>) in armored OpenPGP format.</p>
-          <hr>
-          <small>
-            -----BEGIN PGP PUBLIC KEY BLOCK-----
-            Version: GnuPG/MacGPG2 v2.0.19 (Darwin)
 
-            mQENBFCrL0IBCADQAXP4rqYfYeQZV4s8biRbn9BMQkKqc1og6opVBxqmaKyh9Xv7
-            RJtwC8vSmzOCGHNMlJBUliqCVK5iNOKWNQpuk4faXMdDfL0QzJ+GVhMtQtHu2d7A
-            BcZ7DO7akPVvWnas3xUYavCUWPaUw5Nt9Ycq32aaC3MYBkGZ6/+HZmAXeIcDZiH8
-            Qn/PrWaW1JK0NK6UmykYladiqF45an+OY+FAD71Of6y8UeQLmZJfjs5R6AbHFdzh
-            vTOcPA1p+jC/DD5Nu5ARth48fJFEwjZic5EK4r+kNaoA1ip3Fh+gd9fggjlPK3Vz
-            TCOoQYjPXug/cw+Amcx+rLVKtNfFEfNN6ri/ABEBAAG0P1NlYW4gTGVybmVyICho
-            dHRwOi8vd3d3LnNlYW5sZXJuZXIuY29tKSA8c2VhbnNsZXJuZXJAZ21haWwuY29t
-            PokBOAQTAQIAIgUCUKsvQgIbAwYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQ
-            TnHzNS7oZoDTiQf9FegievFY+zT4Bpak7CqF6WfABJ1JQ/lNiFy+Ws1bdlECPfhf
-            XTqDk+b2jeO9ER4HR4N6k5t7M9AGHyu8ArPjlqywoqKIW98rgzyGQ5hfebMCzqBu
-            +uEduCwZkMaziEAS5g9Lem6RT/02PeCPyljpucJYmu1pVidAahWxub0Mq70mt+Jo
-            6VS72rmCnP8a5wBzJay3nsmcD0Gq8zTXltocrWu1xiKWuJKmQhus8HU53NGA9V0M
-            spozEm6EEimviG0G2MxujYDdkcDFFZTsukEuZsbJDuMlQKvbe5/m0w8mWccPaVRk
-            GHW/s1m67/M0IurC5GgDHck5udZ8IRWT66dWBbkBDQRQqy9CAQgA40QSApwioz4h
-            qv5WYoI/DGhr+R0wusoVqMGjy0qRLW40k5uTYSjmbePZiK9SiHK6XR5vfuslhRrL
-            pAltKWOUqTaZDhORzaD62HCMZ2D3k4VoSgI2QkL++OZPiHBN0RW71EP+SXDNXGjU
-            X5VCom0w2yVivrJruZ313KYshaSY4VpRRKZhFHCxK0LVqzK6f4c0EYlaTi/5NHjQ
-            5uSZfAEecYN///SBGDz26BO7aJEUzpJ//hOVf34ozc0hg/7cgrgSshuIDV+TypdP
-            N+IVaZEGJML41bKyiTHUiDpDIGBN4stYuVfZZl8+JUkCFJ+IFS9OoQhGp6LB+ZSr
-            hXZniaYfLwARAQABiQEfBBgBAgAJBQJQqy9CAhsMAAoJEE5x8zUu6GaAiJQH/1xL
-            9C7bH+fM0Xq4+6QfXo6P4JHws2+3atqbrX/3bT/im9H7ugH05hRRVKS3GCdTxTZj
-            kXt6sbhIEt/f7BHf2sM9JbzZPsJf6sqhKdDY2BY6MSuBS03h52eNnlPbhoVob9uE
-            hkFgXFvE8mwM0nZREP5FMz/1xRWGszx3HbolyvAEY00S1vwmiZ+Mj8M7lxG71XCm
-            481VN0Krby4uf2RsimV9cIRlBdpZDFMotoR7mEPRFxjRykjgUbFJvoa/0hNKu4NQ
-            9RrunH2RTjx8KUAhc3VG6cBW2IErBrI0nwUMLSfSz72zra32Lqtcmc22qUw5Ed2A
-            HMlXdq0kV3U7sXIFiPc=
-            =yiEW
-            -----END PGP PUBLIC KEY BLOCK-----
-          </small>
+      .full {
+        /*background: url(http://placehold.it/1920x1080) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;*/
+        background-color: #CDCDCD;
+      }
+
+      h1, h2 {
+        font-family: 'Roboto Condensed', serif;
+        text-transform: uppercase;
+      }
+
+      img {
+        float: left;
+        margin-right: 10px;
+      }
+
+      p { font-size: 16px; }
+
+      a:hover {text-decoration: none;}
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Sean S Lerner</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="mailto:seanslerner@gmail.com">
+                <i class="fa fa-envelope"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/seanlerner">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/seanslerner">
+                <i class="fa fa-github"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-12">
+          <h1>I build things on the internet</h1>
+          <img src="/img/seanslerner.jpg">
+          <p>Co-founder of <a href="https://switchboardhq.com">Switchboard</a></p>
+          <p>When not building and breaking all the things,<br> I run, bike, and eat all the food.</p>
         </div>
       </div>
     </div>
-  </div>
-  <script>
-    $(function(){
-      var $content = $('div.content');
-      $('li#l a').on('click', function(event){
-        event.preventDefault();
-        var id = $(this).attr('id');
-        var $page = $('div.content#'+id);
-        $content.hide();
-        $page.fadeIn();
-        var $h4 = $page.find('h4');
-        var $description = $page.find('div#description');
-        $h4.text('');
-        $description.hide();
-        showText($h4, $h4.attr('title'), 0,
-          ($h4.attr('title').length < 10 ? 100 : 60), function() {
-          $description.slideDown(500);
-        });
-      });
-      $('a#pgp').on('click', function(event){
-        event.preventDefault();
-        var id = $(this).attr('id');
-        var page = $('div.content#'+id);
-        $content.hide();
-        page.fadeIn();
-      });
-      $("#hi").delay(100).fadeOut(500, function(){
-        showText("#buildStuff", "I build things on the internet", 0, 100);
-      });
-    });
 
-    function showText(target, message, index, interval, callback) {
-      if (index < message.length) {
-        $(target).append(message[index++]);
-        setTimeout(function () { showText(target, message, index, interval, callback); }, interval);
-      }
-      if (callback && index == message.length - 1) {
-        callback();
-      }
-    }
-  </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-37614656-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-37614656-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-</body>
+      })();
+    </script>
+  </body>
 </html>

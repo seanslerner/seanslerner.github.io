@@ -4,13 +4,13 @@
   <title></title>
   <style type="text/css">
     h1 {
-      text-align: center;
+      /*text-align: center;*/
     }
-    #test {
+    .typewriter {
       position: relative;
       padding-right: 3px;
     }
-    #test::after {
+    .typewriter::after {
       animation: 1s ease 0s normal none infinite running pulse;
       content: "";
       position: absolute;
@@ -41,118 +41,126 @@
   </style>
 </head>
 <body>
-  <h1>
-    <span id='test'>
-      Something and somthing
-    </span>
-  </h1>
+  <p>
+    Switchboard is an engagement platform that connects Something and somthing
+  </p>
 
-  <script type="text/javascript">
-    window.onload = load;
+<script type="text/javascript">
+window.onload = load;
 
-    function load () {
-      var el = document.getElementById('test');
-      Typewriter.start(el, 50, {
-        random: true,
-        phrases: [
-          'Hey Kieran',
-          'I made you a thing',
-          'What do you think?'
-        ]
-      });
-    }
+function load () {
+  var el = document.querySelector('p');
+  Typewriter.start(el, 50, {
+    random: true,
+    staticPhraseLength: 52,
+    staticPhrase: 'Switchboard is an engagement platform that connects ',
+    phrases: [
+      'students with alumni.',
+      'you with your constituents.',
+      'mentors with mentees.',
+      'alumni with one another.',
+      'alumni with opportunity.',
+    ]
+  });
+}
 
-    (function (exports) {
+(function (exports) {
 
-      function Typewriter() {}
+  function Typewriter() {}
 
-      Typewriter.prototype = {
+  Typewriter.prototype = {
 
-        start: function (el, speed, options) {
-          el.textContent = '';
-          var phrases = options.phrases,
-              self = this;
+    start: function (el, speed, options) {
+      el.textContent = options.staticPhrase || '';
+      var typewriterWrapper = document.createElement("span");
+      typewriterWrapper.className = 'typewriter';
+      el.appendChild(typewriterWrapper);
 
-          if (phrases.length == 1) {
-            var splitText = this._splitChars(phrases[0]);
-            this._write(el, splitText, speed, options);
-          }
+      el = typewriterWrapper;
 
-          function iterate(index) {
-            var splitText = self._splitChars(phrases[index]);
+      var phrases = options.phrases,
+          self = this;
 
-            self._write(el, splitText, speed, options, function() {
-              var text = el.textContent.split('');
-              setTimeout(function(){
-                self._erase(el, text, speed, options, function() {
-                  if (index == (phrases.length -1 )) {
-                    iterate(0);
-                  } else {
-                    iterate(index + 1);
-                  }
-                });
-              }, 500);
+      if (phrases.length == 1) {
+        var splitText = this._splitChars(phrases[0]);
+        this._write(el, splitText, speed, options);
+      }
+
+      function iterate(index) {
+        var splitText = self._splitChars(phrases[index]);
+
+        self._write(el, splitText, speed, options, function() {
+          var text = el.textContent.split('');
+          setTimeout(function(){
+            self._erase(el, text, speed, options, function() {
+              if (index == (phrases.length -1 )) {
+                iterate(0);
+              } else {
+                iterate(index + 1);
+              }
             });
+          }, 4500);
+        });
+      }
+
+      iterate(0);
+    },
+
+    _write: function (el, text, speed, options, callback) {
+      var self = this,
+          chr, length, rSpeed = speed;
+
+      (function addChar() {
+        setTimeout(function () {
+          length = text.length;
+          chr = text.pop();
+          rSpeed = options.random ? self._getRandomSpeed(speed) : speed;
+
+          if (length) {
+              var write = el.textContent + chr;
+              el.textContent = write;
+              addChar();
+          } else if (callback) {
+            callback();
           }
+        }, rSpeed);
+      }());
+    },
 
-          iterate(0);
-        },
+    _erase: function (el, text, speed, options, callback) {
+      var self = this,
+          length,
+          rSpeed = speed;
 
-        _write: function (el, text, speed, options, callback) {
-          var self = this,
-              chr, length, rSpeed = speed;
+      (function removeChar() {
+        setTimeout(function () {
+          length = text.length;
+          text.pop();
+          rSpeed = options.random ? self._getRandomSpeed(speed) : speed;
 
-          (function addChar() {
-            setTimeout(function () {
-              length = text.length;
-              chr = text.pop();
-              rSpeed = options.random ? self._getRandomSpeed(speed) : speed;
+          if (length) {
+            var write = text.join('');
+            el.textContent = write;
+            removeChar();
+          } else if (callback) {
+            callback();
+          }
+        }, rSpeed / 2);
+      }());
+    },
 
-              if (length) {
-                  var write = el.textContent + chr;
-                  el.textContent = write;
-                  addChar();
-              } else if (callback) {
-                callback();
-              }
-            }, rSpeed);
-          }());
-        },
+    _getRandomSpeed: function (speed) {
+      return Math.floor(Math.random() * (speed - 250) + 200);
+    },
 
-        _erase: function (el, text, speed, options, callback) {
-          var self = this,
-              length,
-              rSpeed = speed;
+    _splitChars: function (text) {
+      return text.split('').reverse();
+    }
+  };
 
-          (function removeChar() {
-            setTimeout(function () {
-              length = text.length;
-              text.pop();
-              rSpeed = options.random ? self._getRandomSpeed(speed) : speed;
+  exports.Typewriter = new Typewriter();
+}(window));
+</script>
 
-              if (length) {
-                var write = text.join('');
-                el.textContent = write;
-                removeChar();
-              } else if (callback) {
-                callback();
-              }
-            }, rSpeed / 2);
-          }());
-        },
-
-        _getRandomSpeed: function (speed) {
-          return Math.floor(Math.random() * (speed - 250) + 250);
-        },
-
-        _splitChars: function (text) {
-          return text.split('').reverse();
-        }
-      };
-
-      exports.Typewriter = new Typewriter();
-    }(window));
-
-  </script>
 </body>
 </html>

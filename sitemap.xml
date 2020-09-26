@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://seanlerner.com/rando/2019/08/23/pbp-2019.html</loc>
+<lastmod>2019-08-23T00:00:00-07:00</lastmod>
+</url>
+<url>
 <loc>https://seanlerner.com/bikepacking/race/bicycle/2020/09/02/ccr-300-bike.html</loc>
 <lastmod>2020-09-02T00:00:00-07:00</lastmod>
 </url>
@@ -9,12 +13,18 @@
 <lastmod>2020-09-05T00:00:00-07:00</lastmod>
 </url>
 <url>
-<loc>https://seanlerner.com/about/</loc>
+<loc>https://seanlerner.com/about</loc>
+</url>
+<url>
+<loc>https://seanlerner.com/categories/</loc>
 </url>
 <url>
 <loc>https://seanlerner.com/</loc>
 </url>
 <url>
-<loc>https://seanlerner.com/projects.html</loc>
+<loc>https://seanlerner.com/links</loc>
+</url>
+<url>
+<loc>https://seanlerner.com/projects</loc>
 </url>
 </urlset>
